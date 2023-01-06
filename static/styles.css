@@ -1,0 +1,5 @@
+.block:hover { 
+		transform: scale(1.1);  
+		transition-duration: 2s; 
+		color: white; 
+	} 

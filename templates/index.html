@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+    <link rel="stylesheet" href="./static/styles.css" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+
+    <!-- owl carousel links -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="./docs.theme.min.css" /> -->
+    <link rel="stylesheet" href="./static/owl.carousel.min.css" />
+    <link rel="stylesheet" href="./static/owl.theme.default.min.css" />
+
+
+    <!-- font css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+    </style>
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+    </style>
+
+
+    <!--  -->
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+    <!-- <script>
+    jQuery(document).ready(function( $ ) {
+        $('.counter').counterUp({
+            delay: 10,
+            time: 1000
+        });
+    });
+  </script> -->
+
+
+
+
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <!-- NAVBAR START  -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index">Pak-tech</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index">Home</a>
+                    </li>
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="admin/">Admin</a>
+                    </li>
+                </ul>
+                <form class="d-flex" action="search" method="get">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- NAVBAR-ENDS -->
+
+
+    <!-- HEADER -->
+
+    <!-- header section  -->
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="static/1.jpg" class="d-block w-100" alt="..." style="height:600px">
+            </div>
+            <div class="carousel-item">
+                <img src="static/2.jpg" class="d-block w-100" alt="..." style="height:600px">
+            </div>
+            <div class="carousel-item">
+                <img src="static/3.jpg" class="d-block w-100" alt="..." style="height:600px">
+            </div>
+            <div class="carousel-item">
+                <img src="static/4.jpg" class="d-block w-100" alt="..." style="height:600px">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Previous</span>
+</button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Next</span>
+</button>
+    </div>
+
+
+    <!-- HEADER-ENDS -->
+
+
+    <!-- BODY SECTION STARTS -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 my-5">
+                <div class="container">
+                    <form action="addPoll" method="get">
+
+                        <h3>
+                            {% for pols in pol %} {{ pols.title }} {% endfor %}
+                        </h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="{% for pols in pol %}
+                            {{ pols.op1 }}
+                            {% endfor %}" checked>
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                {% for pols in pol %}
+                                {{ pols.op1 }}
+                                {% endfor %}
+                      </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="{% for pols in pol %}
+                            {{ pols.op2 }}
+                            {% endfor %}">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                {% for pols in pol %}
+                                {{ pols.op2 }}
+                                {% endfor %}
+                      </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="{% for pols in pol %}
+                            {{ pols.op3 }}
+                            {% endfor %}">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                {% for pols in pol %}
+                                {{ pols.op3 }}
+                                {% endfor %}
+                      </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="{% for pols in pol %}
+                            {{ pols.op4 }}
+                            {% endfor %}">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                {% for pols in pol %}
+                                {{ pols.op4 }}
+                                {% endfor %}
+                      </label>
+                        </div>
+
+                        <div class="form-controls text-center my-3">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-6 my-5">
+                <div class="text-center">
+                    <h3>Boycott Pathaan trends on Twitter after release of SRK, Deepika Padukone's 'Besharam Rang' song: Know why</h3>
+                </div>
+
+                <p>
+                    Twitter is trending with ‘Boycott Pathaan’, and is flooded with people who are of the opinion that Bollywood has lost all its ideas. Some users on the platform are also comparing the upcoming film to Kantara.Ever since the release, Shah Rukh Khan and
+                    Deepika Padukone's song 'Besharam Rang' from Pathaan has been the talk of the town. While some are praising the song for SRK and Deepika’s chemistry, others are calling to boycott the film. Twitter is trending with ‘Boycott Pathaan’,
+                    and is flooded with people who are of the opinion that Bollywood has lost all its ideas. Some users on the platform are also comparing the upcoming film to Kantara.The trend 'Boycott Pathaan' started soon after the first single of
+                    Pathaan 'Besharam Rang' was unveiled on Monday. Some of the users demanding the boycott shared screenshots from the song wherein Deepika is wearing a saffron-coloured outfit and is held from the back by SRK. A user who claimed to be
+                    a former banker wrote, "I've been a banker for 40 years. And you can trust me on Bankruptcy! When there is bankruptcy of ideas, talent and morality, the only option that remains is to auction your assets to public!"
+
+                </p>
+
+
+                <h2>FAQs</h2>
+
+                <div id="faq">
+
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    {% for faq in faqs %}
+                                    {{ faq.title }}
+                                    {% endfor %}
+                      </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    {% for faq in faqs %} {{ faq.Ans }} {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                    {% for faq in faqs %}
+                                    {{ faq.title1 }}
+                                    {% endfor %}
+                      </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    {% for faq in faqs %} {{ faq.Ans1 }} {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                    {% for faq in faqs %}
+                                    {{ faq.title2 }}
+                                    {% endfor %}
+                      </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    {% for faq in faqs %} {{ faq.Ans2 }} {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-3 my-5">
+
+                <div class="container">
+
+                    <form action="Submit" method="get">
+                        <div class="form-group">
+                            <label for="Abc..">Full Name</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name" name="name">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="Discription">Discription</label>
+                            <textarea class="form-control" id="Discription" rows="3" name="discription"></textarea>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- BODY SECTION ENDS -->
+
+
+
+
+
+
+    <section class="p-4" id="demos">
+        <div class="row">
+            <div class="large-12 columns">
+                <div class="owl-carousel owl-theme">
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt10640346/?ref_=nv_sr_srsg_0">
+                                <img src="./static/images/1.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt10640346/?ref_=nv_sr_srsg_0">
+                                <img src="./static/images/1.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt9114286/?ref_=nv_sr_srsg_0">
+                                <img src="./static/images/2.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt10168670/?ref_=nv_sr_srsg_0">
+                                <img src="./static/images/3.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt0499549/?ref_=nv_sr_srsg_0">
+                                <img src="./static/images/4.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt7693316/?ref_=nv_sr_srsg_0">
+                                <img src="./static/images/5.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="i tem block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt14208870/?ref_=nv_sr_srsg_0">
+                                <img src="./static/images/6.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt12193804/?ref_=nv_sr_srsg_0">
+                                <img src="./static/images/7.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt7628504/?ref_=nv_sr_srsg_0">
+                                <img src="./static/images/8.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt3915174/?ref_=nv_sr_srsg_0">
+
+                                <img src="./static/images/9.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt10298840/?ref_=nv_sr_srsg_0">
+
+                                <img src="./static/images/10.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt7775720/?ref_=nv_sr_srsg_2">
+                                <img src="./static/images/11.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt14807308/?ref_=nv_sr_srsg_0">
+                                <img src="./static/images/12.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt12003946/?ref_=nv_sr_srsg_0">
+                                <img src="./static/images/TM_1Sheet_Payoff_27x40_wTYPE.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt9764362/?ref_=nv_sr_srsg_0">
+                                <img src="./static/images/VNT_Tsr1Sheet1_RGB_5.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item block">
+                        <div class="card" style="width: 18rem">
+                            <a href="https://www.imdb.com/title/tt9764362/?ref_=nv_sr_srsg_0">
+                                <img src="./static/images/WomenTalking_PayoffPoster_PRESS_2765x4096.jpg" class="card-img-top" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <script src="./static/jquery.min.js"></script>
+    <script src="./static/owl.carousel.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var owl = $(".owl-carousel");
+            owl.owlCarousel({
+                items: 5,
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 1200,
+                autoplayHoverPause: true,
+                smartSpeed: 9000,
+            });
+            $(".play").on("click", function() {
+                owl.trigger("play.owl.autoplay", [1000]);
+            });
+            $(".stop").on("click", function() {
+                owl.trigger("stop.owl.autoplay");
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
